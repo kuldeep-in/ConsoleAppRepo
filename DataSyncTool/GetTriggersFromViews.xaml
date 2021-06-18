@@ -1,0 +1,21 @@
+﻿<Window x:Class="DataSyncTool.GetTriggersFromViews"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataSyncTool"
+        mc:Ignorable="d"
+        Title="GetTriggersFromViews" Height="300" Width="300">
+    <Grid Name="grdGetTriggers" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <Label Grid.Row="1" x:Name="lblAvailableViews" Content="AvailableViews :" HorizontalAlignment="Left" Margin="37,107,0,0" VerticalAlignment="Top"/>
+        <ListBox Grid.Row="1" x:Name="lbAvailableViews" HorizontalAlignment="Left" Height="100" Margin="142,44,0,0" VerticalAlignment="Top" SelectionMode="Multiple"/>
+        <TextBox Grid.Row="2" x:Name="txtTarget" HorizontalAlignment="Left" Height="23" Margin="142,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Grid.Row="2" x:Name="lblTarget" Content="TargetPath :" HorizontalAlignment="Left" Margin="37,176,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Row="2" x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" Margin="309,179,0,0" VerticalAlignment="Top" Width="75" Click="btnBrowse_Click"/>
+        <Button x:Name="btnGetInsteadOfInsert" Content="GetInsteadOfInsert" HorizontalAlignment="Left" Margin="17,230,0,0" VerticalAlignment="Top" Click="btnGetInsteadOfInsert_Click"/>
+        <Button x:Name="btnGetInsteadOfUpdate" Content="GetInsteadOfUpdate" HorizontalAlignment="Left" Margin="265,230,-83.4,0" VerticalAlignment="Top" Click="btnGetInsteadOfUpdate_Click"/>
+        <Button x:Name="btnGetInsteadOfDelete" Content="GetInsteadOfDelete" HorizontalAlignment="Left" Margin="142,230,0,0" VerticalAlignment="Top" Click="btnGetInsteadOfDelete_Click" Visibility="Hidden"/>
+        <RadioButton x:Name="rbServer" Content="Server" HorizontalAlignment="Left" Margin="46,207,0,0" VerticalAlignment="Top" GroupName="ServerClient"/>
+        <RadioButton x:Name="rbClient" Content="Client" HorizontalAlignment="Left" Margin="119,207,0,0" VerticalAlignment="Top" GroupName="ServerClient" IsChecked="True"/>
+    </Grid>
+</Window>
