@@ -55,5 +55,27 @@ namespace ConsoleApp01.DataStructure
             }
             Console.WriteLine(op01);
         }
+
+        public static void GetSecondLargestNumber()
+        {
+            int[] inputArray = new int[] { 1, 5, 3, 4, 22, 1 };
+            int largest = int.MinValue;
+            int secondLargest = largest;
+
+            foreach (int i in inputArray)
+            {
+                if (i > largest)
+                {
+                    secondLargest = largest;
+                    largest = i;
+                }
+                else if (i > largest)
+                {
+                    secondLargest = i;
+                }
+            }
+
+            Console.WriteLine(secondLargest);
+        }
     }
 }
