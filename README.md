@@ -68,3 +68,27 @@
   - Networking
 - SQL Server
   - Firewall and virtual network
+
+
+# Dev Test Labs
+
+## Demo - DevTest Lab
+- Create DevTest Lab
+- My virtual machines
+- my environments
+- Configuration and policies
+
+# Infra as a code
+
+## Demo - IaaC
+- Resource provider
+- Resources
+- Resource groups
+- Create template
+  - VS
+  - Az portal
+  - Text edditor
+- deploy template
+  - VS
+  - powershell
+  - Azure portal
