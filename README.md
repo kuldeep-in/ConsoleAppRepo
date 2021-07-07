@@ -59,8 +59,12 @@
 - vNet
   - Address spaces
   - Subnets
-  - Service Endpoints, storage account-> Networking
+  - Service Endpoints
 - NSG
   - Inbound security rules
   - outbound security rules
   - Subnets
+- Storage account
+  - Networking
+- SQL Server
+  - Firewall and virtual network
