@@ -92,3 +92,12 @@
   - VS
   - powershell
   - Azure portal
+
+# Azure Security
+
+## Top 10
+- 10.Web application firewall protects your web applications from common exploits and vulnerabilities, like sql enjection or cross site scripting 
+
+## Demo - Security
+- Azure security Center
+- Azure Key vault
