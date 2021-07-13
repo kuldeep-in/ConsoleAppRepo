@@ -75,3 +75,62 @@ Lets see some of the limitations of sharing self hosted integration runtime.
 - The Data Factory location is where the metadata of the data factory is stored and where the triggering of the pipeline is initiated from. Meanwhile, a data factory can access data stores and compute services in other Azure regions to move data between data stores or process data using compute services. 
 - This behavior is realized through the globally available IR to ensure data compliance, efficiency, and reduced network egress costs.
 - The IR Location defines the location of its back-end compute, and essentially the location where the data movement, activity dispatching, and SSIS package execution are performed. The IR location can be different from the location of the data factory it belongs to.
+
+### Which IR to use
+- N/A
+
+### Knowledge Check
+- How many instances of self-hosted IR can be installed?
+   - 1
+- Can Self hosted IR be shared with multiple Data factories? 
+   - No
+
+## M04L02 - SSIS in Azure
+### SSIS Integration Runtime
+- Azure-SSIS IR is a fully managed cluster of Azure VMs dedicated to run your SSIS packages. To run your SSIS packages in Azure, first you need to host them somewhere. To host the SSIS packages, you can either use your Azure SQL database or Azure SQL managed instance server.
+- You can scale up the power of the compute by specifying node size and scale it out by specifying the number of nodes in the cluster. You can manage the cost of running your 
+Azure-SSIS Integration Runtime by stopping and starting it as you see fit.
+- After provisioning your SSISDB, you can use any tool like SSTD or SQL server management studio to deploy your packages and you can simply run them just like SSIS on premise.
+
+### Deploying SSIS IR
+- NA
+
+### Prerequisites
+- NA
+
+### Azure SSIS integration – Virtual network
+- Azure Data Factory lets you join your Azure-SSIS integration runtime to a virtual network created through the classic deployment model or the Azure Resource Manager deployment model.
+- If SSIS packages access only public cloud data stores, you don't need to join the Azure-SSIS IR to a virtual network. 
+- If SSIS packages access on-premises data stores, you must join the Azure-SSIS IR to a virtual network that is connected to the on-premises network. 
+
+### Virtual network (cont)
+- If you join your Azure-SSIS IR to the same virtual network as the Managed Instance, make sure that the Azure-SSIS IR is in a different subnet than the Managed Instance. 
+- If you join the Azure-SSIS IR to a different virtual network than the Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a virtual network to virtual network connection
+- To deploy your virtual network, you can either use classic deployment method or you can also use ARM templates.
+
+### Virtual network config requirements
+- You must be registered to Microsoft Batch resource provider under your subscription.
+- Some other network requirements are like having a proper subnet, Domain name server.
+- Network security groups can be used to filter the network traffic in an azure virtual network.
+- You can use Azure expressrouts or your own user defined routes to establish a connection between Azure resources and on premises servers
+
+### Selecting Subnet–Virtual Network Configuration
+- While selecting your subnet, make sure you have enough address spaces in that subnet.
+- Just for easy calculation atleast leave double the number of nodes of your integration runtime.
+- All azure services have their own subnet range, which you can find on Microsoft documentation. So while selecting your subnet, leave the address already occupied 
+by azure services.
+
+### Domain name service server:
+- Make sure your SSIS IR can resolve public azure host names, like blob.core.windows.net for azure storage blob, database.windows.net for Azure sql servers.
+- It is recommended to forward your requests from custom DNS to Azure DNS, so that Azure DNS can resolve azure host names.
+- For your virtual network, it is recommended to setup your custom DNS as primary and Azure DNS as secondary 
+
+### Network Security Group
+- For the inbound and outbound connection data factory uses these ports to communicate with the nodes of your Azure SSIS Integration runtime in your virtual network.
+
+### Azure Active Directory configuration
+- To setup your azure AD, first create a new group in Azure AD and add Azure data factory manage instance to that group.
+- For your Azure SQL databases you need to enable Azure AD authentication.
+- And same for your Azure SQL manage instance, you have to enable Azure AD
+
+
