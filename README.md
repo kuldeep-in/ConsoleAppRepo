@@ -1,41 +1,5 @@
 # WP - ADF
 
-
-# M03 - Transformation and Control Flow
-## M03L01 - Transformation in ADF
-### Knowledge Check
-- Name a Data Transformation activity?
-    - HDInsight, Machine Learning, SQL Server, Data Lake Analytics, Databricks
-
-- What Transformation supports On-Demand Compute Environment?
-    - HDInsight Spark
-
-- What Azure service is used to compute a Custom Activity?
-    - Azure Batch
-
-
-## M03L02 - ControlFlow in ADF
-### Knowledge Check
-- Name one specialized control flow activity?
-    - Filter, Execute Pipeline, ForEach, Web, Lookup, Get Metadata, Until, If Condition, and Wait
-
-- Name a purpose for using control flow?
-    - Error handling
-    - Execution logic based on conditions/values
-
-### Demo : Control Flow
-- General
-    - Execute Pipeline
-    - Get Metadata (Copy -> Get metadata))
-    - Lookup (Table dataset)
-    - Web
-    - Wait
-- Iterational and conditional
-    - For Each (Lookup -> foreach (storedproc)
-    - If Condition
-    - Switch
-    - unti
-
 # M04 - Integration Runtime
 ## M04L01 - Integration Runtime - ADF
 ### Integration Runtime
