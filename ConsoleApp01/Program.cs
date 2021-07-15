@@ -1,5 +1,6 @@
 ﻿using ConsoleApp01.AzDevOps;
 using ConsoleApp01.DataStructure;
+using ConsoleApp01.StorageAccount;
 using System;
 
 namespace ConsoleApp01
@@ -13,6 +14,7 @@ namespace ConsoleApp01
             //DSQuestions.comparestring("ABACAB", "");
             //DSQuestions.ReverseString("abcddca");
             //Console.WriteLine("Completed. Press enter to Exit");
+            //GenerateTestDataTableStorage.GenerateTestData();
 
             Console.ReadLine();
         }
