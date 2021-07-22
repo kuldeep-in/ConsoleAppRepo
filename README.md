@@ -6,16 +6,16 @@
 -	use cases where you can use functions.
 -	Then we will dive into technical bit, where we will talk about function triggers, input and output bindings.
 -	We will see, how we can configure the functions.
--	At the end of the session we will talk about the Azure Logic apps.
+-	At the end we will talk about the Azure Logic apps.
 
 ## What is Serverless
--	Lets first understand what is serverless model.
+Lets first understand what is serverless model.
 -	When I say serverless means, you don’t need to worry about provisioning and managing servers. You don’t need to think of how much resources your service will consume.
 -	Serverless is full abstraction of servers, where your developers can simply focus on their code without worrying about infrastructure.
 -	Instant -event driven scalability.
--	Serverless applications, can react to the events and triggers associated with them. They can be scaled when you need more processing. 
+    - Serverless applications, can react to the events and triggers associated with them. They can be scaled when you need more processing. 
 -	Pay-as you go.
--	As you are not provisioning any servers or infrastructure, so the billing is calculated on the number times you will call your application or how long your application was running and how much memory was used.
+    - As you are not provisioning any servers or infrastructure, so the billing is calculated on the number times you will call your application or how long your application was running and how much memory was used.
 
 ## What are the benefits:
 Some of the benefits of using serverless computing model are.
@@ -38,7 +38,7 @@ Some of the benefits of using serverless computing model are.
     - Azure functions and logic apps are another serverless platform, which would be the focus of today’s session.
 
 ## What is Azure functions:
--	 Azure function is an event based serverless compute experience that accelerate your application development
+-	Azure function is an event based serverless compute experience that accelerate your application development
 -	In Azure function you gets built-in triggers, which lets you to define or configure when you would like to invoke your function. 
 -	Function provides binding to different data sources, which can be used to get the data from the data stores or you can even pass the data from azure functions to these data stores.
 -	You can develop your functions using your favourite IDE or you can also leverage the capability of Azure portal where you can build, test and debug your functions.
@@ -54,10 +54,10 @@ Some of the benefits of using serverless computing model are.
 
 ## Boost development efficiency:
 -	So If I summarize all the capabilities of azure functions, which increase your development efficiency without worrying about infrastructure are:
--	 Triggers which invokes the functions
+-	Triggers which invokes the functions
 -	You can create endpoints as reverse proxies to other apis
 -	Leverage the capabilities of DevOps and deploy your functions using CI CD pipelines.
--	With the help of binds you can interact with the different data sources.
+-	With the help of bindings you can interact with the different data sources.
 -	You can debug or monitor your functions from your favourite IDEs or using developer tools from azure portal
 
 ## Azure functions:
@@ -76,7 +76,7 @@ Some of the benefits of using serverless computing model are.
 ## Input and output bindings
 -	Binding means connecting another resource to function.
 -	Input binding can be used to create connections to the data stores, from where you are looking to read the data.
--	You can use output binding to return the data to other services, where you can consume or store your data.
+-	You can use output binding to return the data to other services, where you can store your data for further processing.
 
 ## Configuring triggers and bindings
 -	You can define your triggers and bindings based on your development approach.
@@ -112,7 +112,6 @@ Some of the benefits of using serverless computing model are.
     - data integration weather in cloud or in on premises or both.
 -	You can integrate machine learning or cognitive service applications with the help of logic apps.
 -	Some of the common use cases can be, sending email notifications with Microsoft 365 event, or moving files from FTP storage to Azure storage.
-
 
 ## Logic App – Diagram
 -	Logic apps provides you code free environment, where you can use 200+ connectors to interact with services running in cloud or on-premise.
