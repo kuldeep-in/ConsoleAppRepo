@@ -85,4 +85,4 @@
     - Portal Tool Installer 
     - Import Portal Configuration 
 
-![Deployment Flow](../DynamicsDeploymentFlow.png)
+![Deployment Flow](../AzDevOps/DynamicsDeploymentFlow.png)
