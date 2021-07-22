@@ -1,7 +1,8 @@
 # Dynamics Solution Deployment using CI/CD pipelines
 
+## Import Data to $(featurebranch01) Branch
 ### Build Pipeline (Solution and Portal Data)
-- Import Data to $(featurebranch01) Branch
+
 - Job: Dynamics Solution Export
     - Power Platform Tool Installer 
     - Power Platform Export Solution 
@@ -64,8 +65,10 @@
         git push origin $(featurebranch01)
         ```
 
-- Create Pull request from $(featurebranch01) to Main
-- Build pipeline on main to generate artifacts
+### Create Pull request from $(featurebranch01) to Main
+
+### Build pipeline on main to generate artifacts
+- Job 01
     - Power Platform Tool Installer 
     - Power Platform Pack Solution 
         - Pack the Dynamics365 solution only
@@ -73,17 +76,13 @@
         - SolutionName/PortalData/Portal-Deployment
     - Publish Artifact: drop
 
+### Realease pipeline
+- Job: Dynamics Solution Import
+    - Power Platform Tool Installer 
+    - Power Platform Import Solution 
+    - Power Platform Publish Customizations 
+- Job: Dynamics Solution Import
+    - Portal Tool Installer 
+    - Import Portal Configuration 
 
-- Creation of stored procedures and triggers and UDFs.
-    - [Demo]
-    - [Labs]
-- Partitioning, key choice, horizonal scaling.
-- Data Modeling
-- Pricing
-- Change feeds.
-    - Set up change feeds
-    - [Demo]
-
-### Day 2 
-- Performance Monitoring.
-    - Azure monitor
+![Deployment Flow](../DynamicsDeploymentFlow.png)
