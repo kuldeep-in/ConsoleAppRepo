@@ -132,6 +132,85 @@ Action can be placed in 3 categories:
 -	Some common examples of actions can be, like deleting an entry from table, or wait for some specific time interval.
 
 ## Demo
+```
+#r "Newtonsoft.Json"
 
+using System;
+using Newtonsoft.Json;
 
+public class DataModel
+{
+    public string PartitionKey {get;set;}  
+    public string RowKey{get;set;} 
+    public string Id { get; set; }
+    public string Name { get; set; } 
+    public string Location { get; set; }
+}
+
+public static async Task Run(string myQueueItem, ILogger log,  IAsyncCollector<DataModel> outputTable)
+{
+    DataModel e =  JsonConvert.DeserializeObject<DataModel>(myQueueItem);
+    log.LogInformation($"C# Q: ID is {e.Id}");
+    log.LogInformation($"C# Q: Name is {e.Name}");
+    e.PartitionKey = e.Name;
+    e.RowKey = e.Id;
+
+    await outputTable.AddAsync(e); 
+}
+```
+- Create function app
+    - Consumption plan and monitoring
+- App keys (Host keys)
+- Functions
+    - Add new function
+    - Use azure queue storage trigger
+        - Open a new tab setup the queue
+    - Come back to trigger after setting up queue
+    - Create function
+    - Go to function keys
+    - Go to code and test
+        - Test and run
+        - Add message from queue “Message from queue”
+        - Add JSON {“id”:1}
+        - If you would like to read the JSON inside function then:
+        ```
+            #r "Newtonsoft.Json"
+
+            using System;
+            using Newtonsoft.Json;
+
+            public class DataModel
+            {
+                public int Id { get; set; }
+                public string Name { get; set; } 
+                public string Location { get; set; }
+            }
+
+            DataModel e =  JsonConvert.DeserializeObject<DataModel>(myQueueItem);
+         ```
+- Create new output table
+- Go to integration and create new output binding
+- Go back to code and test
+- And make code changes to accept output binding
+```
+public class DataModel
+{
+    public string PartitionKey {get;set;}  
+    public string RowKey{get;set;} 
+    public string Id { get; set; }
+    public string Name { get; set; } 
+    public string Location { get; set; }
+}
+
+public static async Task Run(string myQueueItem, ILogger log,  IAsyncCollector<DataModel> outputTable)
+{
+    DataModel e =  JsonConvert.DeserializeObject<DataModel>(myQueueItem);
+    log.LogInformation($"C# Q: ID is {e.Id}");
+    log.LogInformation($"C# Q: Name is {e.Name}");
+    e.PartitionKey = e.Name;
+    e.RowKey = e.Id;
+
+    await outputTable.AddAsync(e); 
+}
+```
 
