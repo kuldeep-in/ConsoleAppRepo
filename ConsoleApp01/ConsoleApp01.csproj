@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.TeamFoundationServer.Client" Version="16.153.0" />
     <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.33" />
   </ItemGroup>
 
 </Project>

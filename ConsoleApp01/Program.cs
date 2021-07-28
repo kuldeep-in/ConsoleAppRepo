@@ -15,6 +15,7 @@ namespace ConsoleApp01
             //DSQuestions.ReverseString("abcddca");
             //Console.WriteLine("Completed. Press enter to Exit");
             //GenerateTestDataTableStorage.GenerateTestData();
+            //ConsoleApp01.Web.ReadWebContent.ReadWebPageContent();
 
             Console.ReadLine();
         }
