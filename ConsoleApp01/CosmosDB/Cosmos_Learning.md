@@ -23,9 +23,40 @@ CosmosClient cosmosClient = new CosmosClient(
 
 ### SQL api query
 ```
-SELECT i.name, c.code
-from Items i
-join c in i.customproperties
+SELECT * from f where f.id = "AndersenFamily"
+
+SELECT {"Name":f.id, "City":f.address.city, "State":f.address.state
+} AS Family 
+FROM Families f
+
+SELECT c.givenName, c.gender FROM c IN f.children
+
+select * from Families.address.zip
+
+SELECT * FROM Families.children[1]
+
+SELECT f.id AS Name,{ "state": f.address.state, "city": f.address.city } AS Address, f.address.zip FROM Families f
+
+SELECT f.id, f.address.state = "CA" AS IsFromCAState FROM Families f
+
+SELECT {"ParentName":p.givenName, "ChildName":c.givenName} AS Name
+FROM Families f 
+JOIN c IN f.children 
+JOIN p IN f.parents
+
+SELECT * 
+FROM c IN Families.children
+WHERE c.grade > 2
+
+SELECT 
+    f.id AS familyName,
+    c.givenName AS childGivenName,
+    c.firstName AS childFirstName,
+    p.givenName AS petName 
+FROM Families f 
+JOIN c IN f.children 
+JOIN p IN c.pets
+
 ```
 
 ### Diagnostics Queries (KQL)
