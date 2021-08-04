@@ -78,6 +78,19 @@ function createFamily(id, isregistered) {
 }
 ```
 
+UDF
+```
+function getName(document) {
+    if (document.familyName != undefined ) {
+        return document.familyName;
+    }
+    if (document.lastName != undefined ) {
+        return document.lastName;
+    }
+    throw new Error("Document with id " + document.id + " does not contain name format.");
+}
+```
+
 ### Diagnostics Queries (KQL)
 ```
 AzureDiagnostics
