@@ -98,6 +98,9 @@ function getName(document) {
     throw new Error("Document with id " + document.id + " does not contain name format.");
 }
 ```
+```
+SELECT udf.unf02(c) FROM c
+```
 
 
 
