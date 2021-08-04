@@ -58,6 +58,25 @@ JOIN c IN f.children
 JOIN p IN c.pets
 
 ```
+Stored Procedure
+```
+function createFamily(id, isregistered) { 
+    var context = getContext(); 
+    var collection = context.getCollection(); 
+    var options = { disableAutomaticIdGeneration: true }; 
+    var isAccepted = collection.createDocument(collection.getSelfLink(),
+      { 
+      "id": id,
+      "isRegistered": isregistered
+    },options,
+    function (err, documentCreated) { 
+		    if (err) throw new Error('Error' + err.message);
+	      context.getResponse().setBody(documentCreated.id);
+	    }
+    );
+    if (!isAccepted) return;
+}
+```
 
 ### Diagnostics Queries (KQL)
 ```
