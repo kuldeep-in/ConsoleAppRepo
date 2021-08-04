@@ -102,7 +102,39 @@ function getName(document) {
 SELECT udf.unf02(c) FROM c
 ```
 
+Change Feeds
+```
+        {
+            CosmosClient cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
+            string databaseName = "ms-demo-001";
+            string sourceContainerName = "demo03Feb";
+            string leaseContainerName = "demo03Feb-leases";
 
+            Container leaseContainer = cosmosClient.GetContainer(databaseName, leaseContainerName);
+
+            ChangeFeedProcessor changeFeedProcessor = cosmosClient.GetContainer(databaseName, sourceContainerName)
+                .GetChangeFeedProcessorBuilder<Demo03Feb>(processorName: "changeFeedSample", HandleChangesAsync)
+                    .WithInstanceName("consoleHost")
+                    .WithLeaseContainer(leaseContainer)
+                    .Build();
+            Console.WriteLine("Starting Change Feed Processor...");
+            await changeFeedProcessor.StartAsync();
+            Console.WriteLine("Change Feed Processor started.");
+            return changeFeedProcessor;
+        }
+
+        static async Task HandleChangesAsync(IReadOnlyCollection<Demo03Feb> changes, CancellationToken cancellationToken)
+        {
+            Console.WriteLine("Started handling changes...");
+            foreach (Demo03Feb item in changes)
+            {
+                Console.WriteLine($"Detected operation for item with id {item.id}.");
+                // Simulate some asynchronous operation
+                await Task.Delay(10);
+            }
+            Console.WriteLine("Finished handling changes.");
+        }
+```
 
 
 
