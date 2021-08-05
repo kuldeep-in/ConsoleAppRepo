@@ -815,7 +815,7 @@ namespace ConsoleApp01.CosmosDB
         #endregion
 
         #region StoredProc
-        private async Task ExecuteSP()
+        public async Task CreateExecuteSP()
         {
             this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
 
@@ -845,6 +845,15 @@ namespace ConsoleApp01.CosmosDB
                 };
 
             var result = await cosmosClient.GetContainer(DatabaseId, "CustomerContainer").Scripts.ExecuteStoredProcedureAsync<string>("spCreatecustomer", new PartitionKey("cus01"), new[] { newItems });
+            Console.WriteLine(result.RequestCharge);
+
+        }
+
+        public async Task ExecuteSP()
+        {
+            this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
+
+            var result = await cosmosClient.GetContainer(DatabaseId, "CustomerContainer").Scripts.ExecuteStoredProcedureAsync<string>("spCreatecustomer", new PartitionKey("cus01"), new[] { "", "" });
             Console.WriteLine(result.RequestCharge);
 
         }
