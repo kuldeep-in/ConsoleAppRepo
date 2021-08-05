@@ -86,6 +86,22 @@ function createFamily(id, isregistered) {
 }
 ```
 
+```
+public async Task ExecuteSP()
+        {
+            this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
+
+            var result = await cosmosClient.GetContainer("ms-dataportal", "demo-Families")
+                            .Scripts.ExecuteStoredProcedureAsync<string>(
+                                                                    "demo01", 
+                                                                    new PartitionKey("family001"), 
+                                                                    new[] { "family001", "true" }
+                                                                    );
+            Console.WriteLine(result.RequestCharge);
+
+        }
+```
+
 UDF
 ```
 function getName(document) {
