@@ -18,7 +18,7 @@ namespace ConsoleApp01.CosmosDB
     class CosmosOperation
     {
         #region variable declare
-        private const string EndpointUrl = "https://{accountname}.documents.azure.com:443/";
+        private const string EndpointUrl = "";
         private const string PrimaryKey = "";
 
         private const string DatabaseId = "";
@@ -853,7 +853,12 @@ namespace ConsoleApp01.CosmosDB
         {
             this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey);
 
-            var result = await cosmosClient.GetContainer(DatabaseId, "CustomerContainer").Scripts.ExecuteStoredProcedureAsync<string>("spCreatecustomer", new PartitionKey("cus01"), new[] { "", "" });
+            var result = await cosmosClient.GetContainer("ms-dataportal", "demo-Families")
+                            .Scripts.ExecuteStoredProcedureAsync<string>(
+                                                                    "demo01", 
+                                                                    new PartitionKey("family001"), 
+                                                                    new[] { "family001", "true" }
+                                                                    );
             Console.WriteLine(result.RequestCharge);
 
         }

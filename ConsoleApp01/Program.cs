@@ -20,14 +20,9 @@ namespace ConsoleApp01
             //GenerateTestDataTableStorage.GenerateTestData();
             //ConsoleApp01.Web.ReadWebContent.ReadWebPageContent();
 
-            CosmosOperation demo = new CosmosOperation();
-
-            await demo.ExecuteSP();
 
             Console.ReadLine();
         }
-
-
 
     }
 }
