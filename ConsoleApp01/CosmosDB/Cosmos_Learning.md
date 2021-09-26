@@ -11,6 +11,9 @@
 ### Hands on Lab
 - https://azurecosmosdb.github.io/labs/
 
+### Stats
+- gaming-001 record count : 529461 (26Sept2021)
+
 ### Set region in .net code
 ```
 CosmosClient cosmosClient = new CosmosClient(
@@ -23,6 +26,9 @@ CosmosClient cosmosClient = new CosmosClient(
 
 ### SQL api query
 ```
+Get Records count
+SELECT VALUE COUNT(1) FROM c
+
 SELECT * from f where f.id = "AndersenFamily"
 
 SELECT {"Name":f.id, "City":f.address.city, "State":f.address.state
