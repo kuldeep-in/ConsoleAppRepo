@@ -100,6 +100,13 @@ function getName(document) {
 SELECT udf.unf02(c) FROM c
 ```
 
+### PowerBI Kusto query
+```
+= Kusto.Contents("https://ade.loganalytics.io/subscriptions/f53f450f-0d71-48a7-ad98-666cfa995c66/resourcegroups/rg-ms-monitor/providers/microsoft.operationalinsights/workspaces/log-ms-cosmosdb-001", "log-ms-cosmosdb-001", "AzureMetrics", [MaxRows=null, MaxSize=null, NoTruncate=null, AdditionalSetStatements=null])
+
+https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>
+```
+
 ### Diagnostics Queries (KQL)
 ```
 AzureDiagnostics
