@@ -53,3 +53,22 @@ git pull --allow-unrelated-histories
 13. git merge feature 1![image](https://user-images.githubusercontent.com/46919355/137463216-4c23d3da-204f-49be-93bc-cf67f00d0db3.png)
 
 ```
+
+
+## https://github.com/microsoft/CSU-AzureLabs/blob/main/Synapse/lab1/readme.md
+```
+Explore query performance and improve table structure
+Improve query performance
+Check for skewed data and space usage
+Understand column store storage details
+Study the impact of materialized views
+Avoid extensive loggings
+```
+
+## https://github.com/microsoft/CSU-AzureLabs/blob/main/Synapse/lab2/readme.md
+```
+Configure linked service and create datasets
+Explore source data in the Data hub
+Import sales data with PolyBase and COPY using T-SQL
+Import sales data with COPY using a pipeline
+```
