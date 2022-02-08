@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleApp01.File
+namespace ConsoleApp01
 {
     using System.IO;
 
