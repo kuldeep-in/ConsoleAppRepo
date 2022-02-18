@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleApp01.CosmosDB
+namespace ConsoleApp01
 {
     using System;
     using System.Threading.Tasks;
@@ -14,6 +14,9 @@ namespace ConsoleApp01.CosmosDB
     using System.IO;
     using Microsoft.Azure.Cosmos.Scripts;
     using System.Threading;
+    using System.Diagnostics;
+    using System.Text.Json;
+    using System.Text;
 
     class CosmosOperation
     {
@@ -28,6 +31,7 @@ namespace ConsoleApp01.CosmosDB
         private CosmosClient cosmosClient;
         private Database database;
         private Container container;
+        CosmosClientOptions options = new CosmosClientOptions { AllowBulkExecution = true };
         #endregion
 
         public async Task RunDemoAsync01()
@@ -35,7 +39,7 @@ namespace ConsoleApp01.CosmosDB
             try
             {
                 //Console.WriteLine("Beginning operations...\n");
-                CosmosOperation p = new CosmosOperation();
+                //CosmosOperation p = new CosmosOperation();
 
                 //Console.WriteLine("1-Read, 2-Delete, 3-Create");
                 //var ip = Console.ReadLine();
@@ -61,7 +65,7 @@ namespace ConsoleApp01.CosmosDB
 
 
                 //await p.DeleteItemFromContainer();
-                await p.StartChangeFeedProcessorAsync();
+                //await p.StartChangeFeedProcessorAsync();
                 //await p.GenerateGameDataAsync();
                 //await p.CreateDatawithIntId();
                 //await p.ExecuteSP();
@@ -928,6 +932,59 @@ namespace ConsoleApp01.CosmosDB
                 await Task.Delay(10);
             }
             Console.WriteLine("Finished handling changes.");
+        }
+        #endregion
+
+        #region Bulk insert
+       
+        public async Task AddDateCosmosDBAsync(string jsonText, string dataDomainName)
+        {
+            this.cosmosClient = new CosmosClient(EndpointUrl, PrimaryKey, options);
+            this.database = await this.cosmosClient.CreateDatabaseIfNotExistsAsync(DatabaseId);
+            this.container = await this.database.CreateContainerIfNotExistsAsync(ContainerName, PartitionKey);
+            //Container container = await _database.CreateContainerIfNotExistsAsync(new ContainerProperties { Id = dataDomainName, PartitionKeyPath = "/id" });
+
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            
+            JsonDocument jsonDocument = JsonDocument.Parse(jsonText); 
+            JsonElement element = jsonDocument.RootElement; 
+
+            var elements = element.EnumerateArray(); 
+            int count = 0;
+            List<Task> tasks = new List<Task>();
+
+            while (elements.MoveNext())
+            {
+                var doc = elements.Current; 
+                if (count != 0) 
+                {
+                    Console.WriteLine(doc);
+                    var id = doc.GetProperty("id").ToString(); 
+                    var raw = doc.GetRawText(); 
+                    byte[] bytes = Encoding.UTF8.GetBytes(raw);
+                    using (var stream = new MemoryStream(bytes))
+                    {
+                        tasks.Add(container.CreateItemStreamAsync(stream, new PartitionKey(id))
+                               .ContinueWith((Task<ResponseMessage> task) =>
+                               {
+                                   using (ResponseMessage response = task.Result)
+                                   {
+                                       if (!response.IsSuccessStatusCode)
+                                       {
+                                           Console.WriteLine($"Received {response.StatusCode} ({response.ErrorMessage}).");
+                                       }
+
+                                   }
+                               })); 
+                    }
+                }
+                count++;
+            }
+
+            await Task.WhenAll(tasks);
+
+            stopwatch.Stop();
+            Console.WriteLine($"Finished in writing {count} items in {stopwatch.Elapsed}.");
         }
         #endregion
 

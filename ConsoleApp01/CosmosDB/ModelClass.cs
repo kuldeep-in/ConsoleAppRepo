@@ -1,5 +1,5 @@
 ﻿
-namespace ConsoleApp01.CosmosDB
+namespace ConsoleApp01
 {
     using Newtonsoft.Json;
     using System;

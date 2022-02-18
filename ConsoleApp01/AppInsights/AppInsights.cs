@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using ConsoleApp01.AzDevOps;
-using ConsoleApp01.CosmosDB;
 using ConsoleApp01.DataStructure;
 using ConsoleApp01.StorageAccount;
 using System.Threading.Tasks;

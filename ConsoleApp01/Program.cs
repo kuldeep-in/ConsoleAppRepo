@@ -1,5 +1,4 @@
 ﻿using ConsoleApp01.AzDevOps;
-using ConsoleApp01.CosmosDB;
 using ConsoleApp01.DataStructure;
 using ConsoleApp01.StorageAccount;
 using System;
@@ -20,15 +19,17 @@ namespace ConsoleApp01
         //static async Task Main(string[] args)
         {
 
-            AppInsights.GenerateAppInsightsData();
-
+            
+            
+            
+            
+            //AppInsights.GenerateAppInsightsData();
             //CopyDashboard.CopyDashboards();
             //DSQuestions.comparestring("ABACAB", "");
             //DSQuestions.ReverseString("abcddca");
             //Console.WriteLine("Completed. Press enter to Exit");
             //GenerateTestDataTableStorage.GenerateTestData();
             //ConsoleApp01.Web.ReadWebContent.ReadWebPageContent();
-
 
             Console.ReadLine();
         }
