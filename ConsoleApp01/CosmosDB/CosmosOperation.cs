@@ -21,12 +21,12 @@ namespace ConsoleApp01
     class CosmosOperation
     {
         #region variable declare
-        private const string EndpointUrl = "";
+        private const string EndpointUrl = "https://cosmos-ms-sqlapi.documents.azure.com:443/";
         private const string PrimaryKey = "";
 
-        private const string DatabaseId = "";
-        private const string ContainerName = "";
-        private const string PartitionKey = "/playerId";
+        private const string DatabaseId = "ms-demo-001";
+        private const string ContainerName = "DemoCon-01";
+        private const string PartitionKey = "/id";
 
         private CosmosClient cosmosClient;
         private Database database;
@@ -38,6 +38,13 @@ namespace ConsoleApp01
         {
             try
             {
+
+                await this.CreateCosmosClient();
+                await this.CreateDatabaseAsync();
+                await this.CreateContainerAsync();
+
+                await this.GenerateDataAsync();
+
                 //Console.WriteLine("Beginning operations...\n");
                 //CosmosOperation p = new CosmosOperation();
 
@@ -60,9 +67,6 @@ namespace ConsoleApp01
                 //    Console.WriteLine("Creating....");
                 //    await p.GenerateGameDataAsync();
                 //}
-
-
-
 
                 //await p.DeleteItemFromContainer();
                 //await p.StartChangeFeedProcessorAsync();
@@ -333,10 +337,10 @@ namespace ConsoleApp01
             Console.WriteLine();
         }
 
-        private async Task GenerateGameDataAsync()
+        private async Task GenerateDataAsync()
         {
-            int playerCount = 500;
-            int doccount = 300;
+            int playerCount = 10;
+            int doccount = 100;
             Random random = new System.Random();
 
             //var options = new ParallelOptions() { MaxDegreeOfParallelism = 2 };
@@ -362,7 +366,7 @@ namespace ConsoleApp01
 
                     GameObject gameob = new GameObject
                     {
-                        Id = Guid.NewGuid().ToString(),
+                        id = Guid.NewGuid().ToString(),
                         playerId = stringPlayerId,
                         siteCode = ModelClass.siteList[r],
                         dateTime = DateTime.UtcNow.Ticks,
@@ -416,7 +420,7 @@ namespace ConsoleApp01
 
                     try
                     {
-                        await this.container.CreateItemAsync<GameObject>(gameob, new PartitionKey(gameob.playerId));
+                        await this.container.CreateItemAsync<GameObject>(gameob, new PartitionKey(gameob.id));
 
                         Console.WriteLine("Player: {0}, Document {1}, playerId: {2} ", pl, dc, gameob.playerId);
 
@@ -640,12 +644,12 @@ namespace ConsoleApp01
                     Console.WriteLine(string.Format("#{0}/{1} Deleting doc Id:{2}, pID:{3}",
                         cnt.ToString(),
                         response.Count().ToString(),
-                        item.Id.ToString(),
+                        item.id.ToString(),
                         item.playerId.ToString()));
                     try
                     {
                         cnt++;
-                        await container.DeleteItemAsync<GameObject>(item.Id.ToString(), new PartitionKey(item.playerId.ToString()));
+                        await container.DeleteItemAsync<GameObject>(item.id.ToString(), new PartitionKey(item.playerId.ToString()));
                     }
                     catch
                     {

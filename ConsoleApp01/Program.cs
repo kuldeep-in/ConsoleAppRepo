@@ -15,14 +15,14 @@ namespace ConsoleApp01
 {
     class Program
     {
-        static void Main(string[] args)
-        //static async Task Main(string[] args)
+        //static void Main(string[] args)
+        static async Task Main(string[] args)
         {
 
-            
-            
-            
-            
+            CosmosOperation p = new CosmosOperation();
+
+            await p.RunDemoAsync01();
+
             //AppInsights.GenerateAppInsightsData();
             //CopyDashboard.CopyDashboards();
             //DSQuestions.comparestring("ABACAB", "");

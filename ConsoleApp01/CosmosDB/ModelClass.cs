@@ -146,7 +146,7 @@ namespace ConsoleApp01
     {
 
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public string id { get; set; }
 
         public string playerId { get; set; }
         public string siteCode { get; set; }
