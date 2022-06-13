@@ -16,7 +16,7 @@ namespace ConsoleApp01.AzDevOps
     public static class ReadWriteWorkItems
     {
         static Uri uri = new Uri("https://dev.azure.com/adminorg");
-        static string personalAccessToken = "5ny2ekc6nvfazaeaia3urkhaabt3ebn6h5uyg3jq5t5awgyhyazq";
+        static string personalAccessToken = "";
 
         public static void GetWorkItems()
         {
