@@ -12,7 +12,7 @@ namespace ConsoleApp01.SQL
         private static void WriteDatasetToTextFile()
         {
             DataSet ds = new DataSet();
-            using (SqlConnection connection = new SqlConnection("Server=gti-maps-tststab.database.windows.net,1433;Database=Gti.Database.Maps;User ID=dbadmin;Password=Sup3rC0mpl3x!;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (SqlConnection connection = new SqlConnection("Server=xxx.database.windows.net,1433;Database=MyDatabase;User ID=xxx;Password=xxx;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;"))
             {
                 connection.Open();
 
