@@ -7,7 +7,7 @@
     - Power Platform Tool Installer 
     - Power Platform Export Solution 
     - Power Platform Unpack Solution 
-    - Command Like script to Commit Changes
+    - Command line script to Commit Changes
         ```
         echo commit all changes
         git config --global user.email "$(useremail)"
