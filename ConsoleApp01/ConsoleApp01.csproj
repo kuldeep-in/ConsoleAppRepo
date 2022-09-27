@@ -6,8 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="01-File-BCP\" />
-    <Folder Include="02-File-PowerShellScripts\" />
     
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.12.0" />
