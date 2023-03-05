@@ -19,9 +19,10 @@ namespace ConsoleApp01
         static async Task Main(string[] args)
         {
 
-            CosmosOperation p = new CosmosOperation();
+            //CosmosOperation p = new CosmosOperation();
+            //await p.RunDemoAsync01();
 
-            await p.RunDemoAsync01();
+            ImageProcessing.RenameImagesByDate();
 
             //AppInsights.GenerateAppInsightsData();
             //CopyDashboard.CopyDashboards();
