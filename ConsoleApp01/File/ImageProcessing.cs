@@ -16,7 +16,7 @@ namespace ConsoleApp01
             int i = 0;
             var dateList = new List<DateTime>();
             //foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//HP//Downloads//Norway/", "*.jpg"))
-            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//Downloads//img//00/"))
+            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//OneDrive//2 Kd_Photos//2018_03 Pondi/"))
             {
                 i++;
                 if (sourceImage.EndsWith(".jpg") || sourceImage.EndsWith(".jpeg") || sourceImage.EndsWith(".JPG"))
@@ -46,8 +46,8 @@ namespace ConsoleApp01
                         Console.WriteLine($"{sourceImage} -{i}-> {targetfileName}");
 
                     }
-                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "img", "10", targetfileName);
-                    //System.IO.File.Copy(sourceImage, filePath, true);
+                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "img10", targetfileName);
+                    System.IO.File.Copy(sourceImage, filePath, true);
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace ConsoleApp01
         {
             int i = 0;
             var dateList = new List<DateTime>();
-            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//OneDrive//3 Kd_Video/"))
+            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//O/"))
             {
                 i++;
                 if (sourceImage.EndsWith(".mov") || sourceImage.EndsWith(".MOV") || sourceImage.EndsWith(".mp4"))

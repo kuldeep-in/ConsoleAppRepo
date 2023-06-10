@@ -22,7 +22,7 @@ namespace ConsoleApp01
             //CosmosOperation p = new CosmosOperation();
             //await p.RunDemoAsync01();
 
-            ImageProcessing.RenameMOVbyDate();
+            ImageProcessing.RenameImagesByDate();
 
             //AppInsights.GenerateAppInsightsData();
             //CopyDashboard.CopyDashboards();
