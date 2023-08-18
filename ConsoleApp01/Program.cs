@@ -35,8 +35,6 @@ namespace ConsoleApp01
             Console.ReadLine();
         }
 
-        
-
         //public static bool NextBoolean(this Random random)
         //{
         //    return random.Next() > (Int32.MaxValue / 2);

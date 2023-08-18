@@ -1,22 +1,18 @@
 ﻿
 namespace ConsoleApp01
 {
-    using System;
-    using System.Threading.Tasks;
-    using System.Configuration;
-    using System.Collections.Generic;
-    using System.Net;
     using Microsoft.Azure.Cosmos;
-    using System.Linq;
-    using Newtonsoft.Json;
-    using System.Security.Cryptography;
-    using System.Numerics;
-    using System.IO;
     using Microsoft.Azure.Cosmos.Scripts;
-    using System.Threading;
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics;
-    using System.Text.Json;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
     using System.Text;
+    using System.Text.Json;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     class CosmosOperation
     {

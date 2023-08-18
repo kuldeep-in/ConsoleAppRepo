@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ConsoleApp01.AzDevOps;
-using ConsoleApp01.DataStructure;
-using ConsoleApp01.StorageAccount;
-using System.Threading.Tasks;
-using Microsoft.ApplicationInsights;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
-using Microsoft.ApplicationInsights.Extensibility;
+using System;
 using System.Threading;
 
 namespace ConsoleApp01
