@@ -16,7 +16,7 @@ namespace ConsoleApp01
             int i = 0;
             var dateList = new List<DateTime>();
             //foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//HP//Downloads//Norway/", "*.jpg"))
-            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//OneDrive//2 Kd_Photos//2018_03 Pondi/"))
+            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//Downloads//iphone//20/"))
             {
                 i++;
                 if (sourceImage.EndsWith(".jpg") || sourceImage.EndsWith(".jpeg") || sourceImage.EndsWith(".JPG"))
@@ -46,7 +46,7 @@ namespace ConsoleApp01
                         Console.WriteLine($"{sourceImage} -{i}-> {targetfileName}");
 
                     }
-                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "img10", targetfileName);
+                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "op", targetfileName);
                     System.IO.File.Copy(sourceImage, filePath, true);
                 }
                 else
@@ -61,7 +61,7 @@ namespace ConsoleApp01
         {
             int i = 0;
             var dateList = new List<DateTime>();
-            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//O/"))
+            foreach (string sourceImage in System.IO.Directory.GetFiles("C://Users//insin//Downloads//iphone//20/"))
             {
                 i++;
                 if (sourceImage.EndsWith(".mov") || sourceImage.EndsWith(".MOV") || sourceImage.EndsWith(".mp4"))
@@ -87,12 +87,12 @@ namespace ConsoleApp01
                         }
                         dateList.Add(dt);
 
-                        targetfileName = $"{dt:yyyyMMdd_HHmmss}.MOV";
+                        targetfileName = $"MOV_{dt:yyyyMMdd_HHmmss}.MOV";
                         Console.WriteLine($"{sourceImage} -{i}-> {targetfileName}");
 
                     }
-                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "img", "10", targetfileName);
-                    //System.IO.File.Copy(sourceImage, filePath, true);
+                    string filePath = Path.Combine("C:", "Users", "insin", "Downloads", "op", targetfileName);
+                    System.IO.File.Copy(sourceImage, filePath, true);
                 }
                 else
                 {
